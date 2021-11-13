@@ -1,4 +1,4 @@
-import InvalidArgumentError from "../Errors/InvalidArgumentError.js";
+import InvalidArgumentError from "../errors/invalid-argument-error.js";
 
 export default class ConfigValidator {
     constructor(extractor) {

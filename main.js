@@ -1,7 +1,7 @@
-import InvalidArgumentError from './src/Errors/InvalidArgumentError.js';
-import CommandLineArgumentsParser from './src/Support/CommandLineArgumentsParser.js';
-import ConfigValidator from './src/Support/ConfigValidator.js';
-import configExtractor from './src/Support/ConfigExtractor.js';
+import InvalidArgumentError from './src/errors/invalid-argument-error.js';
+import CommandLineArgumentsParser from './src/support/command-line-arguments-parser.js';
+import ConfigValidator from './src/support/ConfigValidator.js';
+import configExtractor from './src/support/ConfigExtractor.js.js';
 import pipeline from 'stream';
 
 const configValidator = new ConfigValidator(configExtractor);
