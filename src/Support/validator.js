@@ -4,15 +4,20 @@ import InvalidConfigSyntaxError from "../errors/invalid-config-syntax.js";
 export default class Validator {
   validateArgs() {}
 
-  validateConfig(config, cb) {
+  validateConfig(config) {
     // validate for empty
     if (!config) {
       throw new InvalidArgumentError("Config cannot be empty");
     }
 
-    config.split("-").forEach((chunk) => {
-      const cipher = this.getCipherName(chunk[0]);
-      let direction;
+    const ciphers = [];
+    const chunks = config.split("-");
+
+    for (let i = 0; i < chunks.length; i++) {
+      const chunk = chunks[i];
+
+      let cipher = this.getCipherName(chunk[0]);
+      let direction = null;
 
       if (cipher === null) {
         throw new InvalidConfigSyntaxError("Invalid config " + config);
@@ -36,9 +41,14 @@ export default class Validator {
           "Encoding/decoding flag should not be passed for " + cipher
         );
       }
-    });
 
-    cb(config, direction);
+      ciphers.push({
+        cipher,
+        direction,
+      });
+    }
+
+    return ciphers;
   }
 
   getCipherName(config) {
