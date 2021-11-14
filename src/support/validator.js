@@ -2,7 +2,37 @@ import InvalidArgumentError from "../errors/invalid-argument-error.js";
 import InvalidConfigSyntaxError from "../errors/invalid-config-syntax.js";
 
 export default class Validator {
-  validateArgs() {}
+  validateArgs(args) {
+    const userArgs = [...args].splice(2);
+
+    const validArgumentPairs = [
+      ["-c", "--config"],
+      ["-i", "--input"],
+      ["-o", "--output"],
+    ];
+
+    for (const pair of validArgumentPairs) {
+      this._checkDuplicates(userArgs, pair);
+    }
+  }
+
+  _checkDuplicates(args, pair) {
+    let index = args.findIndex((arg) => arg === pair[0]);
+    if (index !== -1) {
+      delete args[index];
+    } else {
+      index = args.findIndex((arg) => arg === pair[1]);
+      if (index !== -1) {
+        delete args[index];
+      }
+    }
+
+    for (let i = 0; i < args.length; i++) {
+      if (pair.includes(args[i])) {
+        throw new InvalidArgumentError("Flags cannot be duplicated");
+      }
+    }
+  }
 
   validateConfig(config) {
     // validate for empty

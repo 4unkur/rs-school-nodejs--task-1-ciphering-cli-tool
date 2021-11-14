@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import CommandLineArgumentsParser from "../src/support/command-line-arguments-parser.js";
 import Validator from "../src/support/validator.js";
 import factory from "../src/factories/streams-factory.js";
@@ -22,7 +20,7 @@ const { config, input, output } = parser.get();
     );
   } catch (error) {
     if (error.custom) {
-      console.error(error.message);
+      process.stderr.write(error.message + "\n");
       process.exit(1);
     } else {
       throw error;

@@ -2,6 +2,7 @@ import { AbstractCipher } from "./abstract-cipher.js";
 
 export default class Caesar extends AbstractCipher {
   _shift = 1;
+
   constructor(options = {}) {
     super(options);
 
