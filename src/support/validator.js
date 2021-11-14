@@ -84,7 +84,13 @@ export default class Validator {
       return null;
     }
 
-    return output;
+    const path = _path.resolve("./") + "/" + output;
+
+    if (!fs.existsSync(path)) {
+      throw new InvalidArgumentError("Output file does not exist");
+    }
+
+    return path;
   }
 
   _getCipherName(config) {

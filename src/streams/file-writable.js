@@ -14,14 +14,14 @@ export default class FileWritable extends Writable {
       if (err) {
         cb(err);
       } else {
-        this.fd = fd;
+        this._fd = fd;
         cb();
       }
     });
   }
 
   _write(chunk, enc, cb) {
-    fs.write(this.fd, chunk, cb);
+    fs.write(this._fd, chunk, cb);
   }
 
   _destroy(error, cb) {
