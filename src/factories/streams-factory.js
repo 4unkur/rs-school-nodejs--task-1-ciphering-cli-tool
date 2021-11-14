@@ -1,4 +1,5 @@
 import FileReadable from "../streams/file-readable.js";
+import FileWritable from "../streams/file-writable.js";
 
 export default new (class StreamFactory {
   createCiphers(ciphers) {
@@ -24,5 +25,6 @@ export default new (class StreamFactory {
       return process.stdout;
     }
     
+    return new FileWritable(output);
   }
 })();
