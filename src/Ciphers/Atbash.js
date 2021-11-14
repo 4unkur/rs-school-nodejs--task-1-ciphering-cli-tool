@@ -1,6 +1,6 @@
-import { Transform } from 'stream';
+import { AbstractCipher } from "./abstract-cipher.js";
 
-export class Atbash extends Transform {
+export class Atbash extends AbstractCipher {
     constructor(options = {}) {
         super(options);
     }
@@ -23,15 +23,9 @@ export class Atbash extends Transform {
     }
 
     _encode(letter) {
-        const letterCode = letter.charCodeAt();
-        const lowercaseAlphabet = [];
-        const uppercaseAlphabet = [];
-        for (let i = 'A'.charCodeAt(); i <= 'Z'.charCodeAt(); i++) {
-            uppercaseAlphabet.push(i);
-        }
-        for (let i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i++) {
-            lowercaseAlphabet.push(i);
-        }
+        const letterCode = letter.charCodeAt();        
+        const lowercaseAlphabet = this._alphabet.getLowerCase()
+        const uppercaseAlphabet = this._alphabet.getUpperCase()
         const reversedLowercaseAlphabet = lowercaseAlphabet.slice().reverse();
         const reversedUppercaseAlphabet = uppercaseAlphabet.slice().reverse();
 
