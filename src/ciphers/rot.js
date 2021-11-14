@@ -5,6 +5,8 @@ export default class ROT extends Caesar {
     super(options);
 
     this._shift = 8
+
+    this._initAlphabets();
   }
 }
 

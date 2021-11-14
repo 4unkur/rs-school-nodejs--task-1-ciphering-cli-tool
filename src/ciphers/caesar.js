@@ -2,16 +2,13 @@ import { AbstractCipher } from "./abstract-cipher.js";
 
 export default class Caesar extends AbstractCipher {
   _shift = 1;
-
   constructor(options = {}) {
     super(options);
 
-    if (this._shift === undefined) {
-      throw new Error("Shift value is not set");
-    }
+    this._initAlphabets();
   }
 
-  _construct() {
+  _initAlphabets() {
     this._shiftedLowercaseAlphabet = this._shiftAlphabet(this._alphabet);
     this._shiftedUppercaseAlphabet = this._shiftAlphabet(
       this._uppercaseAlphabet

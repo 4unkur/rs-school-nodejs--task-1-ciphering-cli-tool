@@ -3,9 +3,12 @@ import alphabetProvider from "../support/alphabet-provider.js";
 
 export class AbstractCipher extends Transform {
   constructor(options) {
-    const encode = Boolean(options.encode);
+    const encode =
+      options.encode === undefined ? true : Boolean(options.encode);
     delete options.encode;
+
     super(options);
+
     this._encodeFlag = encode;
     this._alphabet = alphabetProvider.getLowerCase();
     this._uppercaseAlphabet = alphabetProvider.getUpperCase();

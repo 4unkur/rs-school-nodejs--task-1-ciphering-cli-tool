@@ -1,11 +1,9 @@
 import { AbstractCipher } from "./abstract-cipher.js";
 
-export class Atbash extends AbstractCipher {
+export default class Atbash extends AbstractCipher {
   constructor(options = {}) {
     super(options);
-  }
 
-  _construct() {
     this._shiftedLowercaseAlphabet = this._shiftAlphabet(this._alphabet);
     this._shiftedUppercaseAlphabet = this._shiftAlphabet(
       this._uppercaseAlphabet
