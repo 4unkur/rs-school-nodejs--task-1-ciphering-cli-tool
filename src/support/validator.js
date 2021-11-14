@@ -1,5 +1,7 @@
 import InvalidArgumentError from "../errors/invalid-argument-error.js";
 import InvalidConfigSyntaxError from "../errors/invalid-config-syntax.js";
+import fs from "fs";
+import _path from "path";
 
 export default class Validator {
   validateArgs(args) {
@@ -16,24 +18,6 @@ export default class Validator {
     }
   }
 
-  _checkDuplicates(args, pair) {
-    let index = args.findIndex((arg) => arg === pair[0]);
-    if (index !== -1) {
-      delete args[index];
-    } else {
-      index = args.findIndex((arg) => arg === pair[1]);
-      if (index !== -1) {
-        delete args[index];
-      }
-    }
-
-    for (let i = 0; i < args.length; i++) {
-      if (pair.includes(args[i])) {
-        throw new InvalidArgumentError("Flags cannot be duplicated");
-      }
-    }
-  }
-
   validateConfig(config) {
     // validate for empty
     if (!config) {
@@ -46,7 +30,7 @@ export default class Validator {
     for (let i = 0; i < chunks.length; i++) {
       const chunk = chunks[i];
 
-      let cipher = this.getCipherName(chunk[0]);
+      let cipher = this._getCipherName(chunk[0]);
       let direction = null;
 
       if (cipher === null) {
@@ -81,7 +65,19 @@ export default class Validator {
     return ciphers;
   }
 
-  getCipherName(config) {
+  validateReadable(input) {
+    if (input === undefined) {
+      return null;
+    }
+
+    const path = _path.resolve("./") + "/" + input;
+
+    if (!fs.existsSync(path)) {
+      throw new InvalidArgumentError("Input file does not exist");
+    }
+  }
+
+  _getCipherName(config) {
     switch (config) {
       case "C":
         return "caesar";
@@ -91,6 +87,24 @@ export default class Validator {
         return "rot";
       default:
         return null;
+    }
+  }
+
+  _checkDuplicates(args, pair) {
+    let index = args.findIndex((arg) => arg === pair[0]);
+    if (index !== -1) {
+      delete args[index];
+    } else {
+      index = args.findIndex((arg) => arg === pair[1]);
+      if (index !== -1) {
+        delete args[index];
+      }
+    }
+
+    for (let i = 0; i < args.length; i++) {
+      if (pair.includes(args[i])) {
+        throw new InvalidArgumentError("Flags cannot be duplicated");
+      }
     }
   }
 }

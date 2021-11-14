@@ -8,4 +8,8 @@ export default new (class StreamFactory {
 
     return Promise.all(promises);
   }
+
+  createReadable() {
+    
+  }
 })();

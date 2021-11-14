@@ -15,9 +15,9 @@ const { config, input, output } = parser.get();
       validator.validateConfig(config)
     );
 
-    pipeline(process.stdin, ...ciphers, process.stdout, (err) =>
-      console.log(err)
-    );
+    const readable = factory.createReadable(validator.validateReadable(input));
+
+    // pipeline(readable, ...ciphers, process.stdout, (err) => console.log(err));
   } catch (error) {
     if (error.custom) {
       process.stderr.write(error.message + "\n");
@@ -27,7 +27,5 @@ const { config, input, output } = parser.get();
     }
   }
 })();
-
-// const readable = validator.validateReadable(input, factory.createReadable);
 
 // const writable = validator.validateWritable(output, factory.createWritable);
