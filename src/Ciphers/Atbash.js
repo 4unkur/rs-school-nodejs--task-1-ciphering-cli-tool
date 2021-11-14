@@ -1,6 +1,6 @@
 import { Transform } from 'stream';
 
-export default class Atbash extends Transform {
+export class Atbash extends Transform {
     constructor(options = {}) {
         super(options);
     }
@@ -49,3 +49,5 @@ export default class Atbash extends Transform {
         return String.fromCharCode(encodedCode);
     }
 };
+
+export const createStream = () => new Atbash();
