@@ -3,19 +3,10 @@ import { AbstractCipher } from "./abstract-cipher.js";
 export class Atbash extends AbstractCipher {
   constructor(options = {}) {
     super(options);
-    this._shiftedLowercaseAlphabet = this._shiftAlphabet(null, this._alphabet);
+    this._shiftedLowercaseAlphabet = this._shiftAlphabet(this._alphabet);
     this._shiftedUppercaseAlphabet = this._shiftAlphabet(
-      null,
       this._uppercaseAlphabet
     );
-  }
-
-  _transform(chunk, enc, cb) {
-    const transformedChunk = this._encodeString(chunk.toString().trim());
-
-    this.push(transformedChunk + "\n");
-
-    cb();
   }
 
   _encode(letter) {
@@ -37,7 +28,7 @@ export class Atbash extends AbstractCipher {
     return String.fromCharCode(encodedCode);
   }
 
-  _shiftAlphabet(encode, alphabet) {
+  _shiftAlphabet(alphabet) {
     return alphabet.slice().reverse();
   }
 }
