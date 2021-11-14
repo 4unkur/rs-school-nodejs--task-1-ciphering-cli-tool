@@ -9,7 +9,9 @@ export default class Caesar extends AbstractCipher {
     if (this._shift === undefined) {
       throw new Error("Shift value is not set");
     }
+  }
 
+  _construct() {
     this._shiftedLowercaseAlphabet = this._shiftAlphabet(this._alphabet);
     this._shiftedUppercaseAlphabet = this._shiftAlphabet(
       this._uppercaseAlphabet

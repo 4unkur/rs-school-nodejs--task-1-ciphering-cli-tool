@@ -2,8 +2,6 @@ import { Transform } from "stream";
 import alphabetProvider from "../support/alphabet-provider.js";
 
 export class AbstractCipher extends Transform {
-  _shiftedLowercaseAlphabet;
-
   constructor(options) {
     const encode = Boolean(options.encode);
     delete options.encode;

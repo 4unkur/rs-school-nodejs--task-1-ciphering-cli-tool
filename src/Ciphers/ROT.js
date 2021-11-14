@@ -1,7 +1,11 @@
-import Caesar from "./Caesar.js";
+import Caesar from "./caesar.js";
 
 export default class ROT extends Caesar {
-  _shift = 8;
+  constructor(options = {}) {
+    super(options);
+
+    this._shift = 8
+  }
 }
 
 export const createStream = (encode) => new ROT({ encode });
