@@ -79,6 +79,14 @@ export default class Validator {
     return path;
   }
 
+  validateWritable(output) {
+    if (output === undefined) {
+      return null;
+    }
+
+    return output;
+  }
+
   _getCipherName(config) {
     switch (config) {
       case "C":

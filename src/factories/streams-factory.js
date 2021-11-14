@@ -11,16 +11,18 @@ export default new (class StreamFactory {
     return Promise.all(promises);
   }
 
-  createReadable(path) {
-    if (path === null) {
-      const readable = process.stdin;
-      readable.on('data', () => {
-
-      })
-
-      return readable;
+  createReadable(input) {
+    if (!input) {
+      return process.stdin;
     }
 
-    return new FileReadable(path);
+    return new FileReadable(input);
+  }
+
+  createWritable(output) {
+    if (!output) {
+      return process.stdout;
+    }
+    
   }
 })();
