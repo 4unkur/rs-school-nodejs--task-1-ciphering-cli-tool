@@ -17,7 +17,7 @@ const { config, input, output } = parser.get();
 
     const readable = factory.createReadable(validator.validateReadable(input));
 
-    // pipeline(readable, ...ciphers, process.stdout, (err) => console.log(err));
+    pipeline(readable, ...ciphers, process.stdout, (err) => console.log(err));
   } catch (error) {
     if (error.custom) {
       process.stderr.write(error.message + "\n");

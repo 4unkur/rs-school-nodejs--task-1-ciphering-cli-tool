@@ -1,7 +1,9 @@
+import FileReadable from "../streams/file-readable.js";
+
 export default new (class StreamFactory {
   createCiphers(ciphers) {
     const promises = ciphers.map((item) =>
-      import(`../ciphers/${item.cipher}.js`).then((module) =>
+      import(`../streams/ciphers/${item.cipher}.js`).then((module) =>
         module.createStream(item.direction)
       )
     );
@@ -9,7 +11,16 @@ export default new (class StreamFactory {
     return Promise.all(promises);
   }
 
-  createReadable() {
-    
+  createReadable(path) {
+    if (path === null) {
+      const readable = process.stdin;
+      readable.on('data', () => {
+
+      })
+
+      return readable;
+    }
+
+    return new FileReadable(path);
   }
 })();

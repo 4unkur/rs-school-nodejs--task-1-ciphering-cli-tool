@@ -75,6 +75,8 @@ export default class Validator {
     if (!fs.existsSync(path)) {
       throw new InvalidArgumentError("Input file does not exist");
     }
+
+    return path;
   }
 
   _getCipherName(config) {
