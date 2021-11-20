@@ -7,3 +7,8 @@ test('it provides correct lowercase alphabet array', () => {
     expect(alphabetProvider.getLowerCase())
         .toEqual(alphabetLowercase.map(letter => letter.charCodeAt()))
 })
+
+test('it provides correct uppercase alphabet array', () => {
+    expect(alphabetProvider.getUpperCase())
+        .toEqual(alphabetUppercase.map(letter => letter.charCodeAt()))
+})
