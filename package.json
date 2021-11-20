@@ -5,7 +5,7 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/4unkur/rs-school-nodejs--task-1-ciphering-cli-tool/issues"
   },
-  "homepage": "https://github.com/4unkur/rs-school-nodejs--task-1-ciphering-cli-tool#readme"
+  "homepage": "https://github.com/4unkur/rs-school-nodejs--task-1-ciphering-cli-tool#readme",
+  "devDependencies": {
+    "jest": "^27.3.1"
+  }
 }
