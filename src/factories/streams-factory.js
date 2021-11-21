@@ -1,15 +1,13 @@
-import FileReadable from "../streams/file-readable.js";
-import FileWritable from "../streams/file-writable.js";
+const FileReadable = require("../streams/file-readable");
+const FileWritable = require("../streams/file-writable");
 
-export default class StreamFactory {
+module.exports = class StreamFactory {
   createCiphers(ciphers) {
-    const promises = ciphers.map((item) =>
-      import(`../streams/ciphers/${item.cipher}.js`).then((module) =>
-        module.createStream(item.direction)
-      )
+    return ciphers.map((item) => {
+        const module = require(`../streams/ciphers/${item.cipher}`);
+        return new module(item.direction);
+      }
     );
-
-    return Promise.all(promises);
   }
 
   createReadable(input) {
@@ -27,4 +25,4 @@ export default class StreamFactory {
 
     return new FileWritable(output);
   }
-}
+};

@@ -1,6 +1,6 @@
-import AbstractCustomError from "./abstract-custom-error.js";
+const AbstractCustomError = require("./abstract-custom-error");
 
-export default class InvalidArgumentError extends AbstractCustomError {
+module.exports = class InvalidArgumentError extends AbstractCustomError {
     constructor(message) {
         super(message);
         this.name = 'InvalidArgumentError';

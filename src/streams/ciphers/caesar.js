@@ -1,6 +1,6 @@
-import { AbstractCipher } from "./abstract-cipher.js";
+const { AbstractCipher } = require("./abstract-cipher");
 
-export default class Caesar extends AbstractCipher {
+module.exports = class Caesar extends AbstractCipher {
   _shift = 1;
 
   constructor(options = {}) {
@@ -67,5 +67,3 @@ export default class Caesar extends AbstractCipher {
     return shiftedPart.concat(cloneAlphabet);
   }
 }
-
-export const createStream = (encode) => new Caesar({ encode });

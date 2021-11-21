@@ -1,4 +1,4 @@
-export default class AlphabetProvider {
+module.exports = class AlphabetProvider {
   getLowerCase() {
     const alphabet = [];
     for (let i = "a".charCodeAt(); i <= "z".charCodeAt(); i++) {

@@ -1,7 +1,6 @@
-export default class CommandLineArgumentsParser {
+module.exports = class CommandLineArgumentsParser {
   constructor(argv) {
     this._argv = argv;
-    
   }
 
   get() {

@@ -1,6 +1,6 @@
-import AbstractCustomError from "./abstract-custom-error.js";
+const AbstractCustomError = require("./abstract-custom-error");
 
-export default class InvalidConfigSyntaxError extends AbstractCustomError {
+module.exports = class InvalidConfigSyntaxError extends AbstractCustomError {
     constructor(message) {
         super(message);
         this.name = 'InvalidConfigSyntaxError';

@@ -1,7 +1,7 @@
-import { Writable } from "stream";
-import fs from "fs";
+const { Writable } = require("stream");
+const fs = require("fs");
 
-export default class FileWritable extends Writable {
+module.exports = class FileWritable extends Writable {
   constructor(filepath) {
     super();
 
@@ -31,4 +31,4 @@ export default class FileWritable extends Writable {
       cb(error);
     }
   }
-}
+};

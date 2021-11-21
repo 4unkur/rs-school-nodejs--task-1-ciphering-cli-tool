@@ -1,7 +1,7 @@
-import { Readable } from "stream";
-import fs from "fs";
+const { Readable } = require("stream");
+const fs = require("fs");
 
-export default class FileReadable extends Readable {
+module.exports = class FileReadable extends Readable {
   constructor(filepath) {
     super();
 

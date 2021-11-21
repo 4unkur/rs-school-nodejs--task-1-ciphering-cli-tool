@@ -1,7 +1,7 @@
-import { Transform } from "stream";
-import AlphabetProvider from "../../support/alphabet-provider.js";
+const { Transform } = require("stream");
+const AlphabetProvider = require("../../support/alphabet-provider");
 
-export class AbstractCipher extends Transform {
+module.exports = class AbstractCipher extends Transform {
   constructor(options = {}) {
     const encode =
       options.encode === undefined ? true : Boolean(options.encode);

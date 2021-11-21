@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ciphering CLI Tool",
   "main": "cipher-cli/index.js",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "test": "jest",
     "test:coverage": "jest --coverage"

@@ -1,9 +1,9 @@
-import InvalidArgumentError from "../errors/invalid-argument-error.js";
-import InvalidConfigSyntaxError from "../errors/invalid-config-syntax.js";
-import fs from "fs";
-import _path from "path";
+const InvalidArgumentError = require("../errors/invalid-argument-error");
+const InvalidConfigSyntaxError = require("../errors/invalid-config-syntax");
+const fs = require("fs")
+const { _path } = reqiure("path");
 
-export default class Validator {
+module.exports = class Validator {
   validateArgs(args) {
     const validArgumentPairs = [
       ["-c", "--config"],

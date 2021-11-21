@@ -1,6 +1,6 @@
-import Caesar from "./caesar.js";
+const Caesar = require("./caesar");
 
-export default class ROT extends Caesar {
+module.exports = class ROT extends Caesar {
   constructor(options = {}) {
     super(options);
 
@@ -9,5 +9,3 @@ export default class ROT extends Caesar {
     this._initAlphabets();
   }
 }
-
-export const createStream = (encode) => new ROT({ encode });

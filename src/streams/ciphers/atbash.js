@@ -1,6 +1,6 @@
-import { AbstractCipher } from "./abstract-cipher.js";
+const { AbstractCipher } = require("./abstract-cipher");
 
-export default class Atbash extends AbstractCipher {
+module.exports = Atbash = class Atbash extends AbstractCipher {
   constructor(options = {}) {
     super(options);
 
@@ -37,5 +37,3 @@ export default class Atbash extends AbstractCipher {
     return alphabet.slice().reverse();
   }
 }
-
-export const createStream = () => new Atbash();
