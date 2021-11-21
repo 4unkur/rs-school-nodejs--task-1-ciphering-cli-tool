@@ -1,7 +1,7 @@
 const InvalidArgumentError = require("../errors/invalid-argument-error");
 const InvalidConfigSyntaxError = require("../errors/invalid-config-syntax");
-const fs = require("fs")
-const { _path } = reqiure("path");
+const fs = require("fs");
+const _path = require("path");
 
 module.exports = class Validator {
   validateArgs(args) {
@@ -121,4 +121,4 @@ module.exports = class Validator {
       }
     }
   }
-}
+};

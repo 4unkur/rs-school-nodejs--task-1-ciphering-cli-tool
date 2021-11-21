@@ -1,4 +1,4 @@
-const { AbstractCipher } = require("./abstract-cipher");
+const AbstractCipher = require("./abstract-cipher");
 
 module.exports = class Caesar extends AbstractCipher {
   _shift = 1;

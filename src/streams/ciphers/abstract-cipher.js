@@ -3,8 +3,7 @@ const AlphabetProvider = require("../../support/alphabet-provider");
 
 module.exports = class AbstractCipher extends Transform {
   constructor(options = {}) {
-    const encode =
-      options.encode === undefined ? true : Boolean(options.encode);
+    const encode = (options.encode === null || options.encode === undefined) ? true : Boolean(options.encode);
     delete options.encode;
 
     super(options);
@@ -47,6 +46,6 @@ module.exports = class AbstractCipher extends Transform {
   }
 
   _isNonLatinCode(code) {
-    return this._alphabet.concat(this._uppercaseAlphabet).includes(code)
+    return this._alphabet.concat(this._uppercaseAlphabet).includes(code);
   }
-}
+};

@@ -3,9 +3,10 @@ const FileWritable = require("../streams/file-writable");
 
 module.exports = class StreamFactory {
   createCiphers(ciphers) {
-    return ciphers.map((item) => {
+    return ciphers.map(item => {
         const module = require(`../streams/ciphers/${item.cipher}`);
-        return new module(item.direction);
+
+        return new module({ encode: item.direction });
       }
     );
   }

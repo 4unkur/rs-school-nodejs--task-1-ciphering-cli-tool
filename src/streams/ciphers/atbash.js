@@ -1,6 +1,6 @@
-const { AbstractCipher } = require("./abstract-cipher");
+const AbstractCipher = require("./abstract-cipher");
 
-module.exports = Atbash = class Atbash extends AbstractCipher {
+module.exports = class Atbash extends AbstractCipher {
   constructor(options = {}) {
     super(options);
 
@@ -31,6 +31,10 @@ module.exports = Atbash = class Atbash extends AbstractCipher {
     }
 
     return String.fromCharCode(encodedCode);
+  }
+
+  _decode(letter) {
+
   }
 
   _shiftAlphabet(alphabet) {
