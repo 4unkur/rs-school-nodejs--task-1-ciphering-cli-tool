@@ -1,8 +1,9 @@
 import CommandLineArgumentsParser from "../src/support/command-line-arguments-parser.js";
 import Validator from "../src/support/validator.js";
-import factory from "../src/factories/streams-factory.js";
+import StreamFactory from "../src/factories/streams-factory.js";
 import { pipeline } from "stream";
 
+const factory = new StreamFactory();
 const validator = new Validator();
 const parser = new CommandLineArgumentsParser(process.argv);
 

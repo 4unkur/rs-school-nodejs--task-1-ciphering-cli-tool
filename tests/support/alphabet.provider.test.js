@@ -1,4 +1,6 @@
-import alphabetProvider from '../../src/support/alphabet-provider.js';
+import AlphabetProvider from "../../src/support/alphabet-provider";
+
+const alphabetProvider = new AlphabetProvider();
 
 describe('alphabet provider test', () => {
     const alphabetLowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];

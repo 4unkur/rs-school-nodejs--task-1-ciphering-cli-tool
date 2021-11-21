@@ -2,11 +2,11 @@
   "name": "ciphering-cli-tool",
   "version": "1.0.0",
   "description": "Ciphering CLI Tool",
-  "main": "main.js",
+  "main": "cipher-cli/index.js",
   "type": "module",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "test:coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",

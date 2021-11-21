@@ -1,7 +1,7 @@
 import FileReadable from "../streams/file-readable.js";
 import FileWritable from "../streams/file-writable.js";
 
-export default new (class StreamFactory {
+export default class StreamFactory {
   createCiphers(ciphers) {
     const promises = ciphers.map((item) =>
       import(`../streams/ciphers/${item.cipher}.js`).then((module) =>
@@ -24,7 +24,7 @@ export default new (class StreamFactory {
     if (!output) {
       return process.stdout;
     }
-    
+
     return new FileWritable(output);
   }
-})();
+}

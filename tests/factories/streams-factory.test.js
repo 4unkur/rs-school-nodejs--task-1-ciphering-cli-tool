@@ -1,9 +1,11 @@
-import streamsFactory from '../../src/factories/streams-factory.js'
-import Caesar from "../../src/streams/ciphers/caesar";
-import Atbash from "../../src/streams/ciphers/atbash";
-import ROT from "../../src/streams/ciphers/rot";
-import FileReadable from "../../src/streams/file-readable";
-import FileWritable from "../../src/streams/file-writable";
+import StreamFactory from '../../src/factories/streams-factory.js'
+import Caesar from "../../src/streams/ciphers/caesar.js";
+import Atbash from "../../src/streams/ciphers/atbash.js";
+import ROT from "../../src/streams/ciphers/rot.js";
+import FileReadable from "../../src/streams/file-readable.js";
+import FileWritable from "../../src/streams/file-writable.js";
+
+const streamsFactory = new StreamFactory()
 
 describe('streams factory: create ciphers test', () => {
     const ciphers = [

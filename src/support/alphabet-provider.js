@@ -1,4 +1,4 @@
-class AlphabetProvider {
+export default class AlphabetProvider {
   getLowerCase() {
     const alphabet = [];
     for (let i = "a".charCodeAt(); i <= "z".charCodeAt(); i++) {
@@ -17,5 +17,3 @@ class AlphabetProvider {
     return alphabet;
   }
 };
-
-export default new AlphabetProvider();

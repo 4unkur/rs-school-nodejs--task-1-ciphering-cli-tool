@@ -1,13 +1,15 @@
 import { Transform } from "stream";
-import alphabetProvider from "../../support/alphabet-provider.js";
+import AlphabetProvider from "../../support/alphabet-provider.js";
 
 export class AbstractCipher extends Transform {
-  constructor(options) {
+  constructor(options = {}) {
     const encode =
       options.encode === undefined ? true : Boolean(options.encode);
     delete options.encode;
 
     super(options);
+
+    const alphabetProvider = new AlphabetProvider();
 
     this._encodeFlag = encode;
     this._alphabet = alphabetProvider.getLowerCase();
