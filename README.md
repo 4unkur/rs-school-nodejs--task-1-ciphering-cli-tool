@@ -65,3 +65,13 @@ node cipher-cli -c "C1-R1-C0-C0-A-R0-R1-R1-A-C1" -i "./input.txt" -o "./output.t
 
 > output.txt
 > `This is secret. Message about "_" symbol!`
+
+Testing
+---
+```sh
+npm install # to install jest and dependencies
+
+npm run test # to run the tests
+
+npm run test:coverage # to run the test with coverage
+```
