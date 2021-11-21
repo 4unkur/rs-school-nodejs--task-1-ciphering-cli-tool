@@ -5,8 +5,6 @@ import _path from "path";
 
 export default class Validator {
   validateArgs(args) {
-    const userArgs = [...args].splice(2);
-
     const validArgumentPairs = [
       ["-c", "--config"],
       ["-i", "--input"],
@@ -14,7 +12,7 @@ export default class Validator {
     ];
 
     for (const pair of validArgumentPairs) {
-      this._checkDuplicates(userArgs, pair);
+      this._checkDuplicates(args, pair);
     }
   }
 

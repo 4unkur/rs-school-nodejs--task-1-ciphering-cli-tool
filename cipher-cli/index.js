@@ -10,7 +10,7 @@ const { config, input, output } = parser.get();
 
 (async () => {
   try {
-    validator.validateArgs(process.argv);
+    validator.validateArgs(process.argv.splice(2));
     const ciphers = await factory.createCiphers(
       validator.validateConfig(config)
     );
