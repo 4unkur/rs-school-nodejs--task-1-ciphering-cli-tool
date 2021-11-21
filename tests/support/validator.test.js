@@ -73,6 +73,4 @@ describe('validator test', () => {
     test.each(configAbbreviations)('it converts abbreviation to cipher name', (abbr, name) => {
         expect(validator._getCipherName(abbr)).toBe(name)
     })
-
-
 })
