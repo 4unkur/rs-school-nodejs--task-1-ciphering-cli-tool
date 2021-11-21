@@ -24,7 +24,7 @@ describe('Caesar test', () => {
         expect(caesar._shiftAlphabet([1, 2, 3])).toEqual([2, 3, 1])
     })
 
-    const nonLatinSymbols = [1, 2, 3, 'а', 'б', 'я', ',', '.', '#', '$'];
+    const nonLatinSymbols = ['1', '2', '3', 'а', 'б', 'я', ',', '.', '#', '$'];
 
     test.each(nonLatinSymbols)('it does not encrypt symbol %j', (symbol) => {
         expect(caesar._encode(symbol)).toBe(symbol)
