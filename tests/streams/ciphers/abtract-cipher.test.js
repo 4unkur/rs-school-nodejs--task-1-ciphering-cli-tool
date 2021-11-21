@@ -19,4 +19,11 @@ describe('Abstract cipher test', () => {
     expect(cipher._isNonLatinCode('a'.charCodeAt())).toBeTruthy();
     expect(cipher._isNonLatinCode('#'.charCodeAt())).toBeFalsy();
   });
+
+  test('it checks for _transform method to be called when piped', () => {
+    const mock = jest.fn();
+    cipher._transform = mock;
+    cipher.write('hello');
+    expect(mock).toBeCalled();
+  });
 });
