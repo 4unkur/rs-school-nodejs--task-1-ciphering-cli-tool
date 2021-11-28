@@ -1,0 +1,27 @@
+{
+  "name": "ciphering-cli-tool",
+  "version": "1.0.0",
+  "description": "Ciphering CLI Tool",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4unkur/rs-school-nodejs--task-1-ciphering-cli-tool.git"
+  },
+  "keywords": [
+    "Ciphering",
+    "CLI",
+    "Tool",
+    "RS",
+    "School"
+  ],
+  "author": "Daiyrbek Artelov @4unkur",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/4unkur/rs-school-nodejs--task-1-ciphering-cli-tool/issues"
+  },
+  "homepage": "https://github.com/4unkur/rs-school-nodejs--task-1-ciphering-cli-tool#readme"
+}
